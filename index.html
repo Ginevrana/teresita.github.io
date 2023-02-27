@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Íconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- Hoja de estilo -->
+    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio</title>
+</head>
+<body>
+
+    <div id="top"></div>
+    
+    <header>
+        <div class="componente">
+            <img src="resources/foto-perfil.png" alt="Foto de perfil" id="fperfil">
+                <ul>
+                    <li><i class="fa-regular fa-user"></i><a href="#datos">Datos personales</a></li>
+                    <li><i class="fa-regular fa-heart"></i> <a href="#proyectos">Proyectos realizados</a></li>
+                    <li><i class="fa-regular fa-comment"></i><a href="#contacto">¡Contame tu proyecto!</a></li>
+                </ul>
+        </div>
+    </header>
+
+    <section class="componente" id="datos">
+        <div class="titulo">
+            <h2>Sobre mí</h2>
+        </div>
+        
+        <cite><strong>Considero que programar es encontrar soluciones creativas y prácticas, sin desatender la experiencia de usuario y su estética.</strong></cite>
+
+        <p id="about">Curiosa, autodidacta, me considero una integrante "de empuje" en un equipo. Siempre tratando de motivar, de disfrutar los desafíos y superarlos, de generar confianza, apoyo y reflexión entre los co-equipers para superar los obstáculos que se nos presenten.</p>            
+        
+        <h3>Habilidades técnicas</h3>
+            <p><strong>Programación:</strong> JavaScript, HTML, CSS <br>
+            <strong>Librerías & Frameworks:</strong> React, Node.js, Express<br>
+            <strong>Base de datos relacional:</strong> MySQL<br>
+            <strong>Herramientas & Plataformas:</strong> GitHub, Trello, Slack, Discord, Zoom, Meet, Joomla<br>
+            <strong>Diseño:</strong> Krita, Adobe Photoshop, Illustrator, InDesign, XD, After Effects, Audition y Premiere</p>
+        <p>También me encuentro interesada en aprender C++, Java y Phyton.</p>
+                        
+        <h3>Habilidades blandas</h3>
+        <p>Siempre encontré fascinante la mirada a nosotros mismos como individuos y como conjunto. Al respecto asistí a seminarios de resolución de conflictos, inteligencia emocional, negociación, motivación personal y de equipos, liderazgo, comunicación efectiva, conversaciones difíciles, productividad personal y administración de tiempo.
+        </p>
+        
+        <h3>Otras habilidades</h3>
+        <p>Entre mis múltiples intereses me formé en diseño gráfico, prensa, administración, comercio electrónico y fundamentos de marketing digital.
+        Con respecto a éste último, me encuentro aprendiendo en paralelo Google Analytics y a futuro planeo formarme en Facebook Blueprint.
+        En mi tiempo libre me gusta escribir, dibujar, hacer deporte, ver series, películas, escuchar podcasts y amo leer. 
+        Encuentro enriquecedoras todas mis experiencias personales, laborales y las de mi entorno.</p>
+        
+    </section>
+
+    <section class="componente" id="proyectos">
+        <h2>Proyectos</h2>
+        <h3>Ingresar a repositorio de Github para ver trabajos no publicados.</h3>
+        <a href="https://github.com/Ginevrana" id="proyect"><i class="fa-brands fa-github"></i></a>
+    </section>
+
+    <section class="componente" id="contacto">
+        <h2>¡Hablemos!</h2>
+        <form method="POST" action="/php/enviar.php">
+            <label for="name">Nombre</label>
+            <input type="text" style="background-color: aliceblue; max-width: 300px;">
+            <label for="email">Correo electrónico</label>
+            <input type="email" name="mail" id="mail" style="background-color: aliceblue; max-width: 300px;">
+            <label for="content">Mensaje</label>
+            <textarea name="content" id="" cols="30" rows="10" style="background-color: aliceblue;"></textarea>
+            <button type="submit">Enviar mensaje</button>
+        </form>
+    </section>
+       
+    <footer>
+    Hecho con ♥ por Teresita
+    </footer>
+
+</body>
+<?php 
+	$name = $_POST['nombre'];
+	$email = $_POST['email'];
+	$asunto = 'Formulario Rellenado';
+	$mensaje = "Nombre: ".$name."<br> Email: $email<br> Mensaje:".$_POST['content'];
+
+
+	if(mail('florenciateresita@gmail.com', $asunto, $mensaje)){
+		alert "Correo enviado";
+	}
+ ?>
+</html>
